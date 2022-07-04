@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "72e39b9d-49f8-416f-89db-118fcb994d21",
-		"name": "Avalanche",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "17cfc183-e372-47e0-9cea-0af1bc885725",
+		"name": "Camino",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18563164"
 	},
 	"item": [
 		{
@@ -2608,6 +2609,17 @@
 					"item": [
 						{
 							"name": "getLastAccepted",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"lastAcceptedPTxID\", pm.response.json().result.id)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -3531,6 +3543,90 @@
 			"name": "PlatformVM",
 			"item": [
 				{
+					"name": "addDaoProposal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.addDaoProposal\",\n    \"params\": {\n        \"proposalType\":1,\n        \"startTime\":0,\n        \"endTime\":600,\n        \"lockAmount\":1000000000,\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\",\n        \"from\": [\"{{pchainAddress}}\"]\n    },\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/ext/bc/P",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"ext",
+								"bc",
+								"P"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getDaoProposal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.getDaoProposal\",\n    \"params\": {\n        \"daoProposalID\":\"{{daoProposalID}}\"\n    },\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/ext/bc/P",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"ext",
+								"bc",
+								"P"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addDaoVote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.addDaoVote\",\n    \"params\": {\n        \"nodeID\":\"{{avalancheNodeId}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\",\n        \"from\": [\"{{pchainAddress}}\"],\n        \"daoProposalID\":\"{{daoProposalID}}\"\n    },\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/ext/bc/P",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"ext",
+								"bc",
+								"P"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "addDelegator",
 					"request": {
 						"method": "POST",
@@ -3538,6 +3634,35 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.addDelegator\",\n    \"params\": {\n        \"nodeId\":\"{{avalancheNodeId}}\",\n        \"startTime\":1613347036,\n        \"endTime\":1631215800,\n        \"stakeAmount\":200000000000,\n        \"rewardAddress\": \"{{pchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/ext/bc/P",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"ext",
+								"bc",
+								"P"
+							]
+						},
+						"description": "Add a delegator to the Default Subnet.\n\nA delegator stakes AVAX and specifies a validator (the delegatee) to validate on their behalf. The delegatee has an increased probability of being sampled by other validators (weight) in proportion to the stake delegated to them.\n\nThe delegatee charges a fee to the delegator; the former receives a percentage of the delegator’s validation reward (if any.)\n\nThe delegation period must be a subset of the perdiod that the delegatee validates the Default Subnet. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformadddefaultsubnetdelegator)"
+					},
+					"response": []
+				},
+				{
+					"name": "addLock",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.addLock\",\n    \"params\": {\n        \"startTime\":0,\n        \"endTime\":120,\n        \"stakeAmount\":200000000000,\n        \"rewardAddress\": \"{{pchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3711,7 +3836,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getBalance\",\n    \"params\" :{\n      \"address\":\"P-custom1u6eth2fg33ye63mnyu5jswtj326jaypvhyar45\"    \n    }\n}",
+							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getBalance\",\n    \"params\" :{\n      \"address\":\"{{pchainAddress}}\"    \n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4175,7 +4300,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getTx\",\n    \"params\" :{\n        \"txID\":\"Cy7cZUot6DCUUDz1VuA2C7vFVWSzW3DgLhYXUAiLWH8BKafbH\",\n        \"encoding\": \"hex\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getTx\",\n    \"params\" :{\n        \"txID\":\"{{lastAcceptedPTxID}}\",\n        \"encoding\": \"hex\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4262,7 +4387,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getUTXOs\",\n    \"params\" :{\n        \"addresses\":[\"P-custom18jma8ppw3nhx5r4ap8clazz0dps7rv5u9xde7p\"],\n        \"sourceChain\": \"X\",\n        \"limit\": 5,\n        \"encoding\": \"hex\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getUTXOs\",\n    \"params\" :{\n        \"addresses\":[\"{{pchainAddress}}\"],\n        \"sourceChain\": \"P\",\n        \"limit\": 5,\n        \"encoding\": \"hex\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
