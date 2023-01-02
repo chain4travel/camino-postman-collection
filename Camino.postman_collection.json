@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "17cfc183-e372-47e0-9cea-0af1bc885725",
+		"_postman_id": "89c2c02e-22ee-4188-a8bf-659ff88a358a",
 		"name": "Camino",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "18563164"
+		"_exporter_id": "16493174"
 	},
 	"item": [
 		{
@@ -17,6 +17,34 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"admin.alias\",\n    \"params\": {\n        \"alias\":\"myAlias\",\n        \"endpoint\":\"bc/X\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/ext/admin",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"ext",
+								"admin"
+							]
+						},
+						"description": "Assign an API an alias, a different endpoint for the API. The original endpoint will still work. This change only affects this node; other nodes will not know about this alias. [More info](https://docs.avax.network/build/apis/admin-api#admin-alias)"
+					},
+					"response": []
+				},
+				{
+					"name": "getNodeSigner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"admin.getNodeSigner\",\n    \"params\": {\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3550,6 +3578,118 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.addDaoProposal\",\n    \"params\": {\n        \"proposalType\":1,\n        \"startTime\":0,\n        \"endTime\":600,\n        \"lockAmount\":1000000000,\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\",\n        \"from\": [\"{{pchainAddress}}\"]\n    },\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/ext/bc/P",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"ext",
+								"bc",
+								"P"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "setAddressState",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"jsonrpc\":\"2.0\",\n  \"id\"     : 1,\n  \"method\" :\"platform.setAddressState\",\n  \"params\" :{\n      \"from\":[\"{{kopernikusPchainAddress}}\"],\n      \"username\":\"{{avalancheUsername}}\",\n      \"password\":\"{{avalanchePassword}}\",\n      \"address\":\"{{kopernikusPchainAddress}}\",\n      \"state\": 34,\n      \"remove\": false\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/ext/bc/P",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"ext",
+								"bc",
+								"P"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registerNode",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.registerNode\",\n    \"params\": {\n        \"oldNodeID\": \"{{avalancheNodeId}}\",\n        \"newNodeID\": \"{{avalancheNodeId}}\",\n        \"consortiumMemberAddress\": \"{{kopernikusPchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/ext/bc/P",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"ext",
+								"bc",
+								"P"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "spend",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.spend\",\n    \"params\": {\n        \"lockMode\": 2,\n        \"amountToLock\": 10,\n        \"amountToBurn\": 1,\n        \"from\": [\"{{kopernikusPchainAddress}}\"],\n        \"encoding\": \"hex\"\n    },\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/ext/bc/P",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"ext",
+								"bc",
+								"P"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getConfiguration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.getConfiguration\",\n    \"params\":{\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
