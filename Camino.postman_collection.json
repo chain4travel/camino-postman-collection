@@ -1019,7 +1019,7 @@
           "response": []
         }
       ],
-      "description": "The X-Chain, Avalanche’s native platform for creating and trading assets, is an instance of the Avalanche Virtual Machine (AVM). This API allows clients to create and trade assets on the X-Chain and other instances of the AVM. [More info](https://docs.avax.network/v1.0/en/api/avm)"
+      "description": "The X-Chain, Camino’s native platform for creating and trading assets, is an instance of the Avalanche Virtual Machine (AVM). This API allows clients to create and trade assets on the X-Chain and other instances of the AVM. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/evm)"
     },
     {
       "name": "EVM",
@@ -1135,7 +1135,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "rpc"]
             },
-            "description": "Getting an account’s non-AVAX balance. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-an-accounts-non-avax-balance)"
+            "description": "Getting an account’s non-AVAX balance. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/evm/#getting-an-accounts-non-avax-balance)"
           },
           "response": []
         },
@@ -1296,7 +1296,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "rpc"]
             },
-            "description": "Getting a block by number. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-a-block-by-number)"
+            "description": "Getting a block by number. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/evm/#getting-a-block-by-number)"
           },
           "response": []
         },
@@ -1319,7 +1319,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "rpc"]
             },
-            "description": "Getting a transaction by hash. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-a-transaction-by-hash)"
+            "description": "Getting a transaction by hash. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/evm/#getting-a-transaction-by-hash)"
           },
           "response": []
         },
@@ -1342,7 +1342,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "rpc"]
             },
-            "description": "Getting a transaction receipt. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-a-transaction-receipt)"
+            "description": "Getting a transaction receipt. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/evm/#getting-a-transaction-receipt)"
           },
           "response": []
         },
@@ -1365,30 +1365,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "avax"]
             },
-            "description": "Send AVAX from the X-Chain to an account on the P-Chain.\nAfter calling this method, you must call the P-Chain’s `importAVAX` method to complete the transfer. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmexportavax)"
-          },
-          "response": []
-        },
-        {
-          "name": "exportAVAX",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"method\" :\"avax.exportAVAX\",\n    \"params\" :{\n        \"from\": [\"{{cchainAddress}}\"],\n        \"to\":\"{{xchainAddress}}\",\n        \"amount\": 999000000,\n        \"destinationChain\": \"X\",\n        \"changeAddr\": \"{{cchainAddress}}\",\n        \"username\":\"{{caminoUserName}}\",\n        \"password\":\"{{caminoPassword}}\" \n    },\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseURL}}/ext/bc/C/avax",
-              "host": ["{{baseURL}}"],
-              "path": ["ext", "bc", "C", "avax"]
-            },
-            "description": "Send AVAX from the X-Chain to an account on the P-Chain.\nAfter calling this method, you must call the P-Chain’s `importAVAX` method to complete the transfer. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmexportavax)"
+            "description": "Send asset from the C-Chain to an account on the X-Chain.\nAfter calling this method, you must call the P-Chain’s `importAVAX` method to complete the transfer. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/c-chain/#avaxexportavax)"
           },
           "response": []
         },
@@ -1411,7 +1388,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "avax"]
             },
-            "description": "Get the private key that controls a given address.\nThe returned private key can be added to a user with `avm.importKey`. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmexportkey)\n\n"
+            "description": "Get the private key that controls a given address.\nThe returned private key can be added to a user with `avm.importKey`. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/c-chain/#avaxexportkey)\n\n"
           },
           "response": []
         },
@@ -1434,7 +1411,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "avax"]
             },
-            "description": "Returns the specified transaction [More info](https://docs.avax.network/v1.0/en/api/avm/#avmgetbalance)"
+            "description": "Returns the specified transaction [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/x-chain/#avaxgetbalance)"
           },
           "response": []
         },
@@ -1457,7 +1434,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "avax"]
             },
-            "description": "Get the status of a transaction sent to the network. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmgettxstatus)"
+            "description": "Get the status of a transaction sent to the network. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/c-chain/#avaxgettxstatus)"
           },
           "response": []
         },
@@ -1480,7 +1457,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "avax"]
             },
-            "description": "Get the UTXOs that reference a given address. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmgetutxos)"
+            "description": "Get the UTXOs that reference a given address. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/c-chain/#avaxgetutxos)"
           },
           "response": []
         },
@@ -1503,30 +1480,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "avax"]
             },
-            "description": "Send AVAX from the X-Chain to an account on the P-Chain.\nAfter calling this method, you must call the P-Chain’s `importAVAX` method to complete the transfer. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmexportavax)"
-          },
-          "response": []
-        },
-        {
-          "name": "importAVAX",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"method\": \"avax.importAVAX\",\n    \"params\": {\n        \"username\":\"{{caminoUserName}}\",\n        \"password\":\"{{caminoPassword}}\",\n        \"sourceChain\": \"X\",\n        \"to\":\"{{cchainAddress}}\"\n    },\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseURL}}/ext/bc/C/avax",
-              "host": ["{{baseURL}}"],
-              "path": ["ext", "bc", "C", "avax"]
-            },
-            "description": "Import AVAX from the X-Chain to an account on the C-Chain.\nBefore calling this method, you must call the X-Chain’s `exportAVAX` method to initiate the transfer. [More info](https://docs.avax.network/v1.0/en/api/evm/#evmimportavax)"
+            "description": "Finalize the transfer of a non-CAM or CAM from the X-Chain to the C-Chain. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/c-chain/#avaximport)"
           },
           "response": []
         },
@@ -1549,7 +1503,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "avax"]
             },
-            "description": "Give a user control over an address by providing the private key that controls the address. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmimportkey)"
+            "description": "Give a user control over an address by providing the private key that controls the address. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/c-chain/#avaximportkey)"
           },
           "response": []
         },
@@ -1595,7 +1549,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "rpc"]
             },
-            "description": "Getting the network ID. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-the-network-id)"
+            "description": "Getting the network ID. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/c-chain/#getting-the-network-id)"
           },
           "response": []
         },
@@ -1664,7 +1618,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "rpc"]
             },
-            "description": "Listing accounts loaded in EVM node. [More info](https://docs.avax.network/v1.0/en/api/evm/#listing-accounts-loaded-in-evm-node)"
+            "description": "Listing accounts loaded in EVM node. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/c-chain/#listing-accounts-loaded-in-evm-node)"
           },
           "response": []
         },
@@ -1687,7 +1641,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "rpc"]
             },
-            "description": "Unlocking an account.\n\nPersonal accounts loaded directly in the EVM can only sign transactions while in an unlocked state. The example below unlocks the listed account address for 60 seconds. Note the associated passphrase `cheese` must be provided for authorization. [More info](https://docs.avax.network/v1.0/en/api/evm/#unlocking-an-account)"
+            "description": "Unlocking an account.\n\nPersonal accounts loaded directly in the EVM can only sign transactions while in an unlocked state. The example below unlocks the listed account address for 60 seconds. Note the associated passphrase `cheese` must be provided for authorization. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/c-chain/#unlocking-an-account)"
           },
           "response": []
         },
@@ -1710,7 +1664,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "rpc"]
             },
-            "description": "Getting count of pending transactions.\n\n“Pending” transactions will be non-zero during periods of heavy network use. “Queued” transactions indicate transactions have been submitted with nonce values ahead of the next expected value for an address, which places them on hold until a transaction with the next expected nonce value is submitted. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-count-of-pending-transactions)"
+            "description": "Getting count of pending transactions.\n\n“Pending” transactions will be non-zero during periods of heavy network use. “Queued” transactions indicate transactions have been submitted with nonce values ahead of the next expected value for an address, which places them on hold until a transaction with the next expected nonce value is submitted. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/c-chain/#getting-count-of-pending-transactions)"
           },
           "response": []
         },
@@ -1733,7 +1687,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "rpc"]
             },
-            "description": "Getting the current client version. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-the-current-client-version)"
+            "description": "Getting the current client version. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/c-chain/#getting-the-current-client-version)"
           },
           "response": []
         },
@@ -1756,7 +1710,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "C", "rpc"]
             },
-            "description": "Calculate a cryptographic hash.\n\nThe input parameter contains hexidecimal bytes of arbitrary length. The example here uses the UTF-8 text string “snowstorm” converted to hexidecimal bytes. [More info](https://docs.avax.network/v1.0/en/api/evm/#calculate-a-cryptographic-hash)"
+            "description": "Calculate a cryptographic hash.\n\nThe input parameter contains hexidecimal bytes of arbitrary length. The example here uses the UTF-8 text string “snowstorm” converted to hexidecimal bytes. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/c-chain/#calculate-a-cryptographic-hash)"
           },
           "response": []
         }
@@ -2379,7 +2333,7 @@
           ]
         }
       ],
-      "description": "This API can be used to query data from AvalancheGo's database. The Index API is only available when node is run with --index-enabled option."
+      "description": "This API can be used to query data from Camino's database. The Index API is only available when node is run with --index-enabled option."
     },
     {
       "name": "Info",
@@ -3227,7 +3181,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "P"]
             },
-            "description": "Get the total amount of nAVAX staked on the Primary Network. [More info](https://docs.avax.network/build/avalanchego-apis/p-chain#platformgettotalstake)"
+            "description": "Get the total amount of nAVAX staked on the Primary Network. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain#platformgettotalstake)"
           },
           "response": []
         },
@@ -3480,7 +3434,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "P"]
             },
-            "description": "Returns the specified transaction [More info](https://docs.avax.network/v1.0/en/api/avm/#avmgetbalance)"
+            "description": "Returns the specified transaction [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformgetbalance)"
           },
           "response": []
         },
@@ -3503,7 +3457,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "P"]
             },
-            "description": "Returns the specified transaction [More info](https://docs.avax.network/v1.0/en/api/avm/#avmgetbalance)"
+            "description": "Returns the specified transaction [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformgettimestamp)"
           },
           "response": []
         },
@@ -3526,7 +3480,7 @@
               "host": ["{{baseURL}}"],
               "path": ["ext", "bc", "P"]
             },
-            "description": "Returns the specified transaction [More info](https://docs.avax.network/v1.0/en/api/avm/#avmgetbalance)"
+            "description": "Returns the specified transaction [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformgettxstatus)"
           },
           "response": []
         },
@@ -3784,7 +3738,7 @@
           "response": []
         }
       ],
-      "description": "This API allows clients to interact with the P-Chain (Platform Chain), which maintains Avalanche’s validator set and handles blockchain creation. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain)"
+      "description": "This API allows clients to interact with the P-Chain (Platform Chain), which maintains Camino’s validator set and handles blockchain creation. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain)"
     }
   ]
 }
