@@ -3714,6 +3714,64 @@
           "response": []
         },
         {
+          "name": "exportAVAX",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"platform.exportAVAX\",\n  \"params\": {\n    \"to\":\"{{xchainAddress}}\",\n    \"amount\":54321,\n    \"username\": \"{{caminoUserName}}\",\n    \"password\": \"{{caminoPassword}}\"\n  },\n  \"id\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/ext/bc/P",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "ext",
+                "bc",
+                "P"
+              ]
+            },
+            "description": "Send AVAX from an account on the C-Chain to an address on the X-Chain.\nThis transaction must be signed with the key of the account that the AVAX is sent from and which pays the transaction fee.\nAfter issuing this transaction, you must call the X-Chain’s `importAVA` method to complete the transfer. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformexportavax)"
+          },
+          "response": []
+        },
+        {
+          "name": "exportKey",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonrpc\":\"2.0\",\n  \"id\" :1,\n  \"method\" :\"platform.exportKey\",\n  \"params\" :{\n    \"username\": \"{{caminoUserName}}\",\n    \"password\": \"{{caminoPassword}}\",\n    \"address\": \"{{pchainAddress}}\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/ext/bc/P",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "ext",
+                "bc",
+                "P"
+              ]
+            },
+            "description": "Get the private key that controls a given address.\nThe returned private key can be added to a user with `platform.importKey`. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformexportkey)"
+          },
+          "response": []
+        },
+        {
           "name": "getAddressStates",
           "request": {
             "method": "POST",
@@ -4348,64 +4406,6 @@
               ]
             },
             "description": "Get the validators and their weights of a subnet or the Primary Network at a given P-Chain height. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformgetvalidatorsat)"
-          },
-          "response": []
-        },
-        {
-          "name": "exportAVAX",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"platform.exportAVAX\",\n  \"params\": {\n    \"to\":\"{{xchainAddress}}\",\n    \"amount\":54321,\n    \"username\": \"{{caminoUserName}}\",\n    \"password\": \"{{caminoPassword}}\"\n  },\n  \"id\": 1\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseURL}}/ext/bc/P",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "ext",
-                "bc",
-                "P"
-              ]
-            },
-            "description": "Send AVAX from an account on the C-Chain to an address on the X-Chain.\nThis transaction must be signed with the key of the account that the AVAX is sent from and which pays the transaction fee.\nAfter issuing this transaction, you must call the X-Chain’s `importAVA` method to complete the transfer. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformexportavax)"
-          },
-          "response": []
-        },
-        {
-          "name": "exportKey",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"jsonrpc\":\"2.0\",\n  \"id\" :1,\n  \"method\" :\"platform.exportKey\",\n  \"params\" :{\n    \"username\": \"{{caminoUserName}}\",\n    \"password\": \"{{caminoPassword}}\",\n    \"address\": \"{{pchainAddress}}\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{baseURL}}/ext/bc/P",
-              "host": [
-                "{{baseURL}}"
-              ],
-              "path": [
-                "ext",
-                "bc",
-                "P"
-              ]
-            },
-            "description": "Get the private key that controls a given address.\nThe returned private key can be added to a user with `platform.importKey`. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformexportkey)"
           },
           "response": []
         },
