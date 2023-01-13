@@ -3807,7 +3807,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"jsonrpc\":\"2.0\",\n  \"id\" :1,\n  \"method\" :\"platform.getBalance\",\n  \"params\" :{\n    \"address\":\"{{pchainAddress}}\"    \n  }\n}",
+              "raw": "{\n  \"jsonrpc\":\"2.0\",\n  \"id\" :1,\n  \"method\" :\"platform.getBalance\",\n  \"params\" :{\n    \"address\":\"{{pchainAddress}}\"\n    \"addresses\":\"[{{pchainAddress}}]\"\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3826,6 +3826,35 @@
               ]
             },
             "description": "Get the balance of an asset controlled by a given address. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformgetbalance)"
+          },
+          "response": []
+        },
+        {
+          "name": "getBlock",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"platform.getBlock\",\n  \"params\":{\n    \"blockID\": \"\",\n    \"encoding\": \"hex\"\n  },\n  \"id\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/ext/bc/P",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "ext",
+                "bc",
+                "P"
+              ]
+            },
+            "description": "Get the block with the given blockID. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformgetblock)"
           },
           "response": []
         },
