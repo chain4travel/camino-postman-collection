@@ -1,9 +1,9 @@
 {
   "info": {
-    "_postman_id": "89c2c02e-22ee-4188-a8bf-659ff88a358a",
+    "_postman_id": "27aa1f25-cd87-4eef-835c-a2f86c717cf0",
     "name": "Camino",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "16493174"
+    "_exporter_id": "5666710"
   },
   "item": [
     {
@@ -3971,6 +3971,35 @@
               ]
             },
             "description": "Returns an upper bound on the number of AVAX that exist. This is an upper bound because it does not account for burnt tokens, including transaction fees. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformgetcurrentsupply)"
+          },
+          "response": []
+        },
+        {
+          "name": "getClaimables",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.getClaimables\",\n    \"params\": {\n        \"locktime\": 0,\n        \"threshold\": 1,\n        \"addresses\": [\n            \"{{pchainAddress}}\"\n        ],\n        \"depositTxIDs\": [\n            \"{{txId}}\"\n        ]\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/ext/bc/P",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "ext",
+                "bc",
+                "P"
+              ]
+            },
+            "description": "Returns claimable rewards: deposit rewards, validator rewards and expired deposit rewards. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformgetclaimables)"
           },
           "response": []
         },
