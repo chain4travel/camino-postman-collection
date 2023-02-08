@@ -3999,7 +3999,36 @@
                 "P"
               ]
             },
-            "description": "Returns claimable rewards: deposit rewards, validator rewards and expired deposit rewards. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformgetclaimables)"
+            "description": "Returns claimables rewards: deposit rewards, validator rewards and expired deposit rewards. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformgetclaimables)"
+          },
+          "response": []
+        },
+        {
+          "name": "getRegisteredShortIDLink",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.getRegisteredShortIDLink\",\n    \"params\": {\n        \"address\": \"{{nodeID/bech32Address}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/ext/bc/P",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "ext",
+                "bc",
+                "P"
+              ]
+            },
+            "description": "A request that in `address` field accepts either a `nodeID` (and returns a `bech32 address` if it exists), or a `bech32 address` (and returns a `NodeID` if it exists). [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformgetregisteredshortidlink)"
           },
           "response": []
         },
