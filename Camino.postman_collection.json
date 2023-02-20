@@ -4004,6 +4004,35 @@
           "response": []
         },
         {
+          "name": "getAllDepositOffers",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.getAllDepositOffers\",\n    \"params\": {\n        \"active\": true\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/ext/bc/P",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "ext",
+                "bc",
+                "P"
+              ]
+            },
+            "description": "Returns all active/inactive deposit offers. [More info](https://docs.camino.foundation/developer/apis/camino-node-apis/p-chain/#platformgetalldepositoffers)"
+          },
+          "response": []
+        },
+        {
           "name": "getRegisteredShortIDLink",
           "request": {
             "method": "POST",
